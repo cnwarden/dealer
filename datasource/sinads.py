@@ -71,7 +71,6 @@ class SinaDS(object):
         del threads[:]
 
     def __worker(self, url):
-        print url
         re = urllib2.urlopen(url, None, 5)
         document, errors = tidy_document(re.read())
         soup = BeautifulSoup(document)
