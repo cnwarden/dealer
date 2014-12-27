@@ -22,7 +22,6 @@ class Test(unittest.TestCase):
     def tearDown(self):
         self.dao.commit()
 
-
     def testExtract(self):
         for item in self.ds.get_reference():
             self.dao.insert_instrument(item)
@@ -30,7 +29,6 @@ class Test(unittest.TestCase):
         for record in self.ds.get_trade_history('600000'):
             print ['600000'] + record
             self.dao.insert_trade(tuple(['600000'] + record))
-
 
 if __name__ == "__main__":
     unittest.main()

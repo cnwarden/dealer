@@ -17,7 +17,7 @@ class DAO(object):
         self.cu = self.cx.cursor()
         
     def create_db(self):
-        sql_str = 'create table if not exists stock_summary(id integer primary key, name varchar(20))'
+        sql_str = 'create table if not exists stock_summary(code varchar(20) primary key, name varchar(20))'
         self.cu.execute(sql_str)
         
         sql_str = 'create table if not exists stock_level1(id integer primary key AUTOINCREMENT, code varchar(20), \
@@ -26,7 +26,7 @@ class DAO(object):
         self.cu.execute(sql_str)
         
     def insert_instrument(self, record):
-        sql_str = 'insert into stock_summary(id, name) values (?, ?)'
+        sql_str = 'insert into stock_summary(code, name) values (?, ?)'
         self.cu.execute(sql_str, record)
         
     def insert_trade(self, trade_record):
