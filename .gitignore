@@ -3,3 +3,4 @@
 *.pyc
 stock.db
 .settings/
+*.sqlite3
